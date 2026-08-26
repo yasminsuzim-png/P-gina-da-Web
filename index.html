@@ -1,14 +1,435 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CineInfo - Seu Guia de Filmes</title>
+
+    <title>CineMania 🎬</title>
+
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-    
+    <!-- CABEÇALHO -->
+    <header>
+        <div class="logo">
+            🎬 CineMania
+        </div>
+
+        <nav>
+            <a href="#inicio">🏠 Início</a>
+            <a href="#filmes">🎞️ Filmes</a>
+            <a href="#sobre">ℹ️ Sobre</a>
+        </nav>
+    </header>
+
+
+    <!-- BANNER PRINCIPAL -->
+    <section class="hero" id="inicio">
+
+        <div class="hero-content">
+
+            <span class="tag">🍿 SEU CATÁLOGO DE FILMES</span>
+
+            <h1>
+                Bem-vindo ao<br>
+                <span>CineMania 🎬</span>
+            </h1>
+
+            <p>
+                Encontre seus filmes favoritos, descubra novas histórias
+                e escolha o que assistir hoje! 🍿✨
+            </p>
+
+            <a href="#filmes" class="botao">
+                🎥 Ver filmes
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- CONTEÚDO -->
+    <main>
+
+        <section class="filmes-section" id="filmes">
+
+            <div class="titulo-area">
+
+                <div>
+                    <span class="mini-titulo">🍿 CATÁLOGO</span>
+
+                    <h2>
+                        Filmes em destaque 🎬
+                    </h2>
+                </div>
+
+                <!-- PESQUISA -->
+                <div class="pesquisa">
+                    🔎
+                    <input
+                        type="text"
+                        id="campoPesquisa"
+                        placeholder="Pesquisar filme..."
+                    >
+                </div>
+
+            </div>
+
+
+            <!-- CATEGORIAS -->
+            <div class="categorias">
+
+                <button class="categoria ativa" onclick="filtrarCategoria('todos')">
+                    🎬 Todos
+                </button>
+
+                <button class="categoria" onclick="filtrarCategoria('acao')">
+                    💥 Ação
+                </button>
+
+                <button class="categoria" onclick="filtrarCategoria('aventura')">
+                    🗺️ Aventura
+                </button>
+
+                <button class="categoria" onclick="filtrarCategoria('animacao')">
+                    🧸 Animação
+                </button>
+
+                <button class="categoria" onclick="filtrarCategoria('ficcao')">
+                    🚀 Ficção
+                </button>
+
+                <button class="categoria" onclick="filtrarCategoria('comedia')">
+                    😂 Comédia
+                </button>
+
+            </div>
+
+
+            <!-- CARDS -->
+            <div class="grid-filmes" id="listaFilmes">
+
+                <!-- FILME 1 -->
+                <article
+                    class="filme"
+                    data-categoria="acao"
+                    data-nome="Homem Aranha"
+                    onclick="abrirFilme(
+                        '🕷️ Homem-Aranha',
+                        'Ação / Aventura',
+                        'Um jovem ganha poderes incríveis e precisa aprender a usá-los para proteger sua cidade.',
+                        '⭐ 9.0'
+                    )"
+                >
+
+                    <div class="poster poster1">
+                        🕷️
+                    </div>
+
+                    <div class="info">
+
+                        <span class="genero">
+                            💥 Ação
+                        </span>
+
+                        <h3>
+                            Homem-Aranha
+                        </h3>
+
+                        <p>
+                            ⭐ 9.0
+                        </p>
+
+                    </div>
+
+                </article>
+
+
+                <!-- FILME 2 -->
+                <article
+                    class="filme"
+                    data-categoria="aventura"
+                    data-nome="Jurassic World"
+                    onclick="abrirFilme(
+                        '🦖 Jurassic World',
+                        'Aventura / Ficção',
+                        'Uma ilha cheia de dinossauros se transforma em uma grande aventura cheia de perigos.',
+                        '⭐ 8.7'
+                    )"
+                >
+
+                    <div class="poster poster2">
+                        🦖
+                    </div>
+
+                    <div class="info">
+
+                        <span class="genero">
+                            🗺️ Aventura
+                        </span>
+
+                        <h3>
+                            Jurassic World
+                        </h3>
+
+                        <p>
+                            ⭐ 8.7
+                        </p>
+
+                    </div>
+
+                </article>
+
+
+                <!-- FILME 3 -->
+                <article
+                    class="filme"
+                    data-categoria="animacao"
+                    data-nome="Toy Story"
+                    onclick="abrirFilme(
+                        '🤠 Toy Story',
+                        'Animação / Comédia',
+                        'Brinquedos ganham vida quando os humanos não estão olhando e vivem grandes aventuras.',
+                        '⭐ 9.2'
+                    )"
+                >
+
+                    <div class="poster poster3">
+                        🤠
+                    </div>
+
+                    <div class="info">
+
+                        <span class="genero">
+                            🧸 Animação
+                        </span>
+
+                        <h3>
+                            Toy Story
+                        </h3>
+
+                        <p>
+                            ⭐ 9.2
+                        </p>
+
+                    </div>
+
+                </article>
+
+
+                <!-- FILME 4 -->
+                <article
+                    class="filme"
+                    data-categoria="ficcao"
+                    data-nome="Interestelar"
+                    onclick="abrirFilme(
+                        '🚀 Interestelar',
+                        'Ficção Científica',
+                        'Astronautas viajam pelo espaço em busca de um novo lugar para a humanidade viver.',
+                        '⭐ 9.5'
+                    )"
+                >
+
+                    <div class="poster poster4">
+                        🚀
+                    </div>
+
+                    <div class="info">
+
+                        <span class="genero">
+                            🚀 Ficção
+                        </span>
+
+                        <h3>
+                            Interestelar
+                        </h3>
+
+                        <p>
+                            ⭐ 9.5
+                        </p>
+
+                    </div>
+
+                </article>
+
+
+                <!-- FILME 5 -->
+                <article
+                    class="filme"
+                    data-categoria="comedia"
+                    data-nome="As Branquelas"
+                    onclick="abrirFilme(
+                        '😂 As Branquelas',
+                        'Comédia',
+                        'Dois agentes se envolvem em uma missão cheia de situações engraçadas e confusões.',
+                        '⭐ 8.8'
+                    )"
+                >
+
+                    <div class="poster poster5">
+                        😂
+                    </div>
+
+                    <div class="info">
+
+                        <span class="genero">
+                            😂 Comédia
+                        </span>
+
+                        <h3>
+                            As Branquelas
+                        </h3>
+
+                        <p>
+                            ⭐ 8.8
+                        </p>
+
+                    </div>
+
+                </article>
+
+
+                <!-- FILME 6 -->
+                <article
+                    class="filme"
+                    data-categoria="acao"
+                    data-nome="Batman"
+                    onclick="abrirFilme(
+                        '🦇 Batman',
+                        'Ação / Crime',
+                        'Um herói usa inteligência, tecnologia e coragem para combater o crime em Gotham City.',
+                        '⭐ 9.1'
+                    )"
+                >
+
+                    <div class="poster poster6">
+                        🦇
+                    </div>
+
+                    <div class="info">
+
+                        <span class="genero">
+                            💥 Ação
+                        </span>
+
+                        <h3>
+                            Batman
+                        </h3>
+
+                        <p>
+                            ⭐ 9.1
+                        </p>
+
+                    </div>
+
+                </article>
+
+            </div>
+
+            <p id="semResultados" class="sem-resultados">
+                😕 Nenhum filme encontrado.
+            </p>
+
+        </section>
+
+
+        <!-- SOBRE -->
+        <section class="sobre" id="sobre">
+
+            <div class="sobre-icon">
+                🎬
+            </div>
+
+            <div>
+
+                <span class="mini-titulo">
+                    📚 TRABALHO ESCOLAR
+                </span>
+
+                <h2>
+                    Sobre o CineMania
+                </h2>
+
+                <p>
+                    O CineMania é um projeto desenvolvido para apresentar
+                    um catálogo de filmes de forma simples, moderna e
+                    interativa. O projeto utiliza HTML, CSS e JavaScript.
+                </p>
+
+                <div class="tecnologias">
+
+                    <span>🌐 HTML</span>
+                    <span>🎨 CSS</span>
+                    <span>⚡ JavaScript</span>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- JANELA DE DETALHES -->
+    <div class="modal" id="modal">
+
+        <div class="modal-content">
+
+            <button class="fechar" onclick="fecharFilme()">
+                ✖️
+            </button>
+
+            <div class="modal-emoji" id="modalEmoji">
+                🎬
+            </div>
+
+            <h2 id="modalTitulo">
+                Filme
+            </h2>
+
+            <span id="modalGenero">
+                Gênero
+            </span>
+
+            <p id="modalDescricao">
+                Descrição
+            </p>
+
+            <strong id="modalNota">
+                ⭐ 10
+            </strong>
+
+        </div>
+
+    </div>
+
+
+    <!-- RODAPÉ -->
+    <footer>
+
+        <div class="logo">
+            🎬 CineMania
+        </div>
+
+        <p>
+            Projeto escolar • Feito com ❤️ e muita criatividade 🍿
+        </p>
+
+        <p>
+            © 2026 CineMania
+        </p>
+
+    </footer>
+
+
+    <script src="script.js"></script>
 
 </body>
 </html>
