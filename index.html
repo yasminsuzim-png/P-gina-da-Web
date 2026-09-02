@@ -14,422 +14,1021 @@
 
 <body>
 
-    <!-- CABEÇALHO -->
-    <header>
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>CineFlix - Filmes</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #0b0b0b;
+    color: white;
+}
+
+/* TOPO */
+
+header {
+    background: #111;
+    padding: 20px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    border-bottom: 1px solid #292929;
+}
+
+.header-content {
+    max-width: 1200px;
+    margin: auto;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+.logo {
+    color: #e50914;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+nav {
+    display: flex;
+    gap: 20px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+}
+
+nav a:hover {
+    color: #e50914;
+}
+
+/* HERO */
+
+.hero {
+    min-height: 500px;
+
+    display: flex;
+    align-items: center;
+
+    padding: 50px 20px;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(0,0,0,.95),
+            rgba(0,0,0,.5)
+        ),
+        url("https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?auto=format&fit=crop&w=1600&q=80");
+
+    background-size: cover;
+    background-position: center;
+}
+
+.hero-content {
+    max-width: 1200px;
+    width: 100%;
+    margin: auto;
+}
+
+.hero h1 {
+    font-size: 60px;
+    max-width: 700px;
+}
+
+.hero h1 span {
+    color: #e50914;
+}
+
+.hero p {
+    max-width: 600px;
+    margin: 20px 0;
+    color: #ccc;
+    font-size: 18px;
+}
+
+.botao {
+    background: #e50914;
+    color: white;
+    border: none;
+    padding: 14px 25px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.botao:hover {
+    background: #b20710;
+}
+
+/* CONTEÚDO */
+
+.container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 50px 20px;
+}
+
+.titulo {
+    font-size: 32px;
+    margin-bottom: 25px;
+}
+
+.titulo span {
+    color: #e50914;
+}
+
+/* PESQUISA */
+
+.search {
+    width: 100%;
+    padding: 16px;
+
+    background: #181818;
+    color: white;
+
+    border: 1px solid #333;
+    border-radius: 8px;
+
+    outline: none;
+    margin-bottom: 30px;
+}
+
+.search:focus {
+    border-color: #e50914;
+}
+
+/* FILMES */
+
+.filmes {
+    display: grid;
+
+    grid-template-columns:
+        repeat(auto-fit, minmax(200px, 1fr));
+
+    gap: 25px;
+}
+
+/* CARD */
+
+.card {
+    background: #171717;
+    border-radius: 10px;
+    overflow: hidden;
+
+    transition: .3s;
+
+    border: 1px solid #222;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    border-color: #e50914;
+}
+
+.poster {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+}
+
+.info {
+    padding: 15px;
+}
+
+.info h3 {
+    margin-bottom: 8px;
+}
+
+.ano {
+    color: #999;
+    font-size: 14px;
+}
+
+.nota {
+    color: #ffc107;
+    margin-top: 8px;
+}
+
+/* BOTÕES DOS FILMES */
+
+.acoes {
+    display: flex;
+    gap: 8px;
+    margin-top: 15px;
+}
+
+.like,
+.favorito {
+    flex: 1;
+
+    border: none;
+
+    padding: 10px;
+
+    border-radius: 6px;
+
+    cursor: pointer;
+
+    color: white;
+
+    background: #292929;
+}
+
+.like:hover,
+.favorito:hover {
+    background: #333;
+}
+
+.like.ativo {
+    background: #1877f2;
+}
+
+.favorito.ativo {
+    background: #e50914;
+}
+
+/* CATEGORIAS */
+
+.categorias {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 30px;
+}
+
+.categoria {
+    padding: 10px 18px;
+
+    border-radius: 30px;
+
+    border: 1px solid #333;
+
+    background: #181818;
+
+    color: white;
+
+    cursor: pointer;
+}
+
+.categoria:hover,
+.categoria.ativa {
+    background: #e50914;
+    border-color: #e50914;
+}
+
+/* FAVORITOS */
+
+#favoritos {
+    background: #111;
+}
+
+/* RODAPÉ */
+
+footer {
+    background: #050505;
+
+    text-align: center;
+
+    padding: 40px 20px;
+
+    color: #777;
+}
+
+/* CELULAR */
+
+@media(max-width: 700px) {
+
+    .header-content {
+        flex-direction: column;
+    }
+
+    nav {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .hero h1 {
+        font-size: 40px;
+    }
+
+    .filmes {
+        grid-template-columns:
+            repeat(2, 1fr);
+
+        gap: 12px;
+    }
+
+    .poster {
+        height: 240px;
+    }
+
+}
+
+@media(max-width: 450px) {
+
+    .filmes {
+        grid-template-columns: 1fr;
+    }
+
+    .poster {
+        height: 400px;
+    }
+
+}
+</style>
+</head>
+
+<body>
+
+<!-- ================= TOPO ================= -->
+
+<header>
+
+    <div class="header-content">
+
         <div class="logo">
-            🎬 CineMania
+            🎬 CineFlix
         </div>
 
         <nav>
-            <a href="#inicio">🏠 Início</a>
-            <a href="#filmes">🎞️ Filmes</a>
-            <a href="#sobre">ℹ️ Sobre</a>
+            <a href="#inicio">Início</a>
+            <a href="#filmes">Filmes</a>
+            <a href="#favoritos">❤️ Favoritos</a>
         </nav>
-    </header>
-
-
-    <!-- BANNER PRINCIPAL -->
-    <section class="hero" id="inicio">
-
-        <div class="hero-content">
-
-            <span class="tag">🍿 SEU CATÁLOGO DE FILMES</span>
-
-            <h1>
-                Bem-vindo ao<br>
-                <span>CineMania 🎬</span>
-            </h1>
-
-            <p>
-                Encontre seus filmes favoritos, descubra novas histórias
-                e escolha o que assistir hoje! 🍿✨
-            </p>
-
-            <a href="#filmes" class="botao">
-                🎥 Ver filmes
-            </a>
-
-        </div>
-
-    </section>
-
-
-    <!-- CONTEÚDO -->
-    <main>
-
-        <section class="filmes-section" id="filmes">
-
-            <div class="titulo-area">
-
-                <div>
-                    <span class="mini-titulo">🍿 CATÁLOGO</span>
-
-                    <h2>
-                        Filmes em destaque 🎬
-                    </h2>
-                </div>
-
-                <!-- PESQUISA -->
-                <div class="pesquisa">
-                    🔎
-                    <input
-                        type="text"
-                        id="campoPesquisa"
-                        placeholder="Pesquisar filme..."
-                    >
-                </div>
-
-            </div>
-
-
-            <!-- CATEGORIAS -->
-            <div class="categorias">
-
-                <button class="categoria ativa" onclick="filtrarCategoria('todos')">
-                    🎬 Todos
-                </button>
-
-                <button class="categoria" onclick="filtrarCategoria('acao')">
-                    💥 Ação
-                </button>
-
-                <button class="categoria" onclick="filtrarCategoria('aventura')">
-                    🗺️ Aventura
-                </button>
-
-                <button class="categoria" onclick="filtrarCategoria('animacao')">
-                    🧸 Animação
-                </button>
-
-                <button class="categoria" onclick="filtrarCategoria('ficcao')">
-                    🚀 Ficção
-                </button>
-
-                <button class="categoria" onclick="filtrarCategoria('comedia')">
-                    😂 Comédia
-                </button>
-
-            </div>
-
-
-            <!-- CARDS -->
-            <div class="grid-filmes" id="listaFilmes">
-
-                <!-- FILME 1 -->
-                <article
-                    class="filme"
-                    data-categoria="acao"
-                    data-nome="Homem Aranha"
-                    onclick="abrirFilme(
-                        '🕷️ Homem-Aranha',
-                        'Ação / Aventura',
-                        'Um jovem ganha poderes incríveis e precisa aprender a usá-los para proteger sua cidade.',
-                        '⭐ 9.0'
-                    )"
-                >
-
-                    <div class="poster poster1">
-                        🕷️
-                    </div>
-
-                    <div class="info">
-
-                        <span class="genero">
-                            💥 Ação
-                        </span>
-
-                        <h3>
-                            Homem-Aranha
-                        </h3>
-
-                        <p>
-                            ⭐ 9.0
-                        </p>
-
-                    </div>
-
-                </article>
-
-
-                <!-- FILME 2 -->
-                <article
-                    class="filme"
-                    data-categoria="aventura"
-                    data-nome="Jurassic World"
-                    onclick="abrirFilme(
-                        '🦖 Jurassic World',
-                        'Aventura / Ficção',
-                        'Uma ilha cheia de dinossauros se transforma em uma grande aventura cheia de perigos.',
-                        '⭐ 8.7'
-                    )"
-                >
-
-                    <div class="poster poster2">
-                        🦖
-                    </div>
-
-                    <div class="info">
-
-                        <span class="genero">
-                            🗺️ Aventura
-                        </span>
-
-                        <h3>
-                            Jurassic World
-                        </h3>
-
-                        <p>
-                            ⭐ 8.7
-                        </p>
-
-                    </div>
-
-                </article>
-
-
-                <!-- FILME 3 -->
-                <article
-                    class="filme"
-                    data-categoria="animacao"
-                    data-nome="Toy Story"
-                    onclick="abrirFilme(
-                        '🤠 Toy Story',
-                        'Animação / Comédia',
-                        'Brinquedos ganham vida quando os humanos não estão olhando e vivem grandes aventuras.',
-                        '⭐ 9.2'
-                    )"
-                >
-
-                    <div class="poster poster3">
-                        🤠
-                    </div>
-
-                    <div class="info">
-
-                        <span class="genero">
-                            🧸 Animação
-                        </span>
-
-                        <h3>
-                            Toy Story
-                        </h3>
-
-                        <p>
-                            ⭐ 9.2
-                        </p>
-
-                    </div>
-
-                </article>
-
-
-                <!-- FILME 4 -->
-                <article
-                    class="filme"
-                    data-categoria="ficcao"
-                    data-nome="Interestelar"
-                    onclick="abrirFilme(
-                        '🚀 Interestelar',
-                        'Ficção Científica',
-                        'Astronautas viajam pelo espaço em busca de um novo lugar para a humanidade viver.',
-                        '⭐ 9.5'
-                    )"
-                >
-
-                    <div class="poster poster4">
-                        🚀
-                    </div>
-
-                    <div class="info">
-
-                        <span class="genero">
-                            🚀 Ficção
-                        </span>
-
-                        <h3>
-                            Interestelar
-                        </h3>
-
-                        <p>
-                            ⭐ 9.5
-                        </p>
-
-                    </div>
-
-                </article>
-
-
-                <!-- FILME 5 -->
-                <article
-                    class="filme"
-                    data-categoria="comedia"
-                    data-nome="As Branquelas"
-                    onclick="abrirFilme(
-                        '😂 As Branquelas',
-                        'Comédia',
-                        'Dois agentes se envolvem em uma missão cheia de situações engraçadas e confusões.',
-                        '⭐ 8.8'
-                    )"
-                >
-
-                    <div class="poster poster5">
-                        😂
-                    </div>
-
-                    <div class="info">
-
-                        <span class="genero">
-                            😂 Comédia
-                        </span>
-
-                        <h3>
-                            As Branquelas
-                        </h3>
-
-                        <p>
-                            ⭐ 8.8
-                        </p>
-
-                    </div>
-
-                </article>
-
-
-                <!-- FILME 6 -->
-                <article
-                    class="filme"
-                    data-categoria="acao"
-                    data-nome="Batman"
-                    onclick="abrirFilme(
-                        '🦇 Batman',
-                        'Ação / Crime',
-                        'Um herói usa inteligência, tecnologia e coragem para combater o crime em Gotham City.',
-                        '⭐ 9.1'
-                    )"
-                >
-
-                    <div class="poster poster6">
-                        🦇
-                    </div>
-
-                    <div class="info">
-
-                        <span class="genero">
-                            💥 Ação
-                        </span>
-
-                        <h3>
-                            Batman
-                        </h3>
-
-                        <p>
-                            ⭐ 9.1
-                        </p>
-
-                    </div>
-
-                </article>
-
-            </div>
-
-            <p id="semResultados" class="sem-resultados">
-                😕 Nenhum filme encontrado.
-            </p>
-
-        </section>
-
-
-        <!-- SOBRE -->
-        <section class="sobre" id="sobre">
-
-            <div class="sobre-icon">
-                🎬
-            </div>
-
-            <div>
-
-                <span class="mini-titulo">
-                    📚 TRABALHO ESCOLAR
-                </span>
-
-                <h2>
-                    Sobre o CineMania
-                </h2>
-
-                <p>
-                    O CineMania é um projeto desenvolvido para apresentar
-                    um catálogo de filmes de forma simples, moderna e
-                    interativa. O projeto utiliza HTML, CSS e JavaScript.
-                </p>
-
-                <div class="tecnologias">
-
-                    <span>🌐 HTML</span>
-                    <span>🎨 CSS</span>
-                    <span>⚡ JavaScript</span>
-
-                </div>
-
-            </div>
-
-        </section>
-
-    </main>
-
-
-    <!-- JANELA DE DETALHES -->
-    <div class="modal" id="modal">
-
-        <div class="modal-content">
-
-            <button class="fechar" onclick="fecharFilme()">
-                ✖️
-            </button>
-
-            <div class="modal-emoji" id="modalEmoji">
-                🎬
-            </div>
-
-            <h2 id="modalTitulo">
-                Filme
-            </h2>
-
-            <span id="modalGenero">
-                Gênero
-            </span>
-
-            <p id="modalDescricao">
-                Descrição
-            </p>
-
-            <strong id="modalNota">
-                ⭐ 10
-            </strong>
-
-        </div>
 
     </div>
 
+</header>
 
-    <!-- RODAPÉ -->
-    <footer>
 
-        <div class="logo">
-            🎬 CineMania
+<!-- ================= HERO ================= -->
+
+<section class="hero" id="inicio">
+
+    <div class="hero-content">
+
+        <h1>
+            Descubra os melhores
+            <span>filmes.</span>
+        </h1>
+
+        <p>
+            Pesquise filmes, dê likes e salve seus favoritos
+            em sua lista pessoal.
+        </p>
+
+        <a href="#filmes">
+            <button class="botao">
+                🎬 Ver filmes
+            </button>
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- ================= FILMES ================= -->
+
+<section id="filmes">
+
+    <div class="container">
+
+        <h2 class="titulo">
+            🎬 <span>Catálogo</span> de filmes
+        </h2>
+
+        <input
+            type="text"
+            id="pesquisa"
+            class="search"
+            placeholder="🔎 Pesquise um filme..."
+        >
+
+        <div class="categorias">
+
+            <button
+                class="categoria ativa"
+                onclick="filtrarGenero('Todos', this)"
+            >
+                Todos
+            </button>
+
+            <button
+                class="categoria"
+                onclick="filtrarGenero('Ação', this)"
+            >
+                Ação
+            </button>
+
+            <button
+                class="categoria"
+                onclick="filtrarGenero('Ficção', this)"
+            >
+                Ficção
+            </button>
+
+            <button
+                class="categoria"
+                onclick="filtrarGenero('Drama', this)"
+            >
+                Drama
+            </button>
+
+            <button
+                class="categoria"
+                onclick="filtrarGenero('Aventura', this)"
+            >
+                Aventura
+            </button>
+
         </div>
 
-        <p>
-            Projeto escolar • Feito com ❤️ e muita criatividade 🍿
+        <div
+            class="filmes"
+            id="listaFilmes"
+        ></div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= FAVORITOS ================= -->
+
+<section id="favoritos">
+
+    <div class="container">
+
+        <h2 class="titulo">
+            ❤️ Meus <span>Favoritos</span>
+        </h2>
+
+        <div
+            class="filmes"
+            id="listaFavoritos"
+        ></div>
+
+        <p
+            id="semFavoritos"
+            style="color:#888;"
+        >
+            Você ainda não adicionou nenhum filme aos favoritos.
         </p>
 
-        <p>
-            © 2026 CineMania
-        </p>
+    </div>
 
-    </footer>
+</section>
 
 
-    <script src="script.js"></script>
+<!-- ================= RODAPÉ ================= -->
+
+<footer>
+
+    <h2>🎬 CineFlix</h2>
+
+    <p>
+        Projeto de catálogo de filmes.
+    </p>
+
+    <br>
+
+    <p>
+        © 2026 CineFlix
+    </p>
+
+</footer>
+
+
+<script>
+
+/* ==========================================
+   FILMES
+========================================== */
+
+const filmes = [
+
+    {
+        id: 1,
+
+        titulo: "Interestelar",
+
+        ano: 2014,
+
+        nota: 8.7,
+
+        genero: ["Ficção", "Drama"],
+
+        imagem:
+        "https://image.tmdb.org/t/p/w500/gEU2QniE6E77NI6lCU6MxlNBvIx.jpg"
+    },
+
+    {
+        id: 2,
+
+        titulo: "Batman",
+
+        ano: 2022,
+
+        nota: 7.8,
+
+        genero: ["Ação", "Drama"],
+
+        imagem:
+        "https://image.tmdb.org/t/p/w500/74xTEgt7R36Fpooo50r9T25onhq.jpg"
+    },
+
+    {
+        id: 3,
+
+        titulo: "Homem-Aranha",
+
+        ano: 2021,
+
+        nota: 8.0,
+
+        genero: ["Ação", "Aventura"],
+
+        imagem:
+        "https://image.tmdb.org/t/p/w500/1g0dhYtq4irTY1GPXvft6k4YLjm.jpg"
+    },
+
+    {
+        id: 4,
+
+        titulo: "Duna",
+
+        ano: 2021,
+
+        nota: 8.0,
+
+        genero: ["Ficção", "Aventura"],
+
+        imagem:
+        "https://image.tmdb.org/t/p/w500/1pdfLvkbY9ohJlCjQH2CZjjYVvJ.jpg"
+    },
+
+    {
+        id: 5,
+
+        titulo: "Matrix",
+
+        ano: 1999,
+
+        nota: 8.7,
+
+        genero: ["Ação", "Ficção"],
+
+        imagem:
+        "https://image.tmdb.org/t/p/w500/f89U3ADr1oiB1s9GkdPOEpXUk5H.jpg"
+    },
+
+    {
+        id: 6,
+
+        titulo: "Vingadores: Ultimato",
+
+        ano: 2019,
+
+        nota: 8.3,
+
+        genero: ["Ação", "Aventura", "Ficção"],
+
+        imagem:
+        "https://image.tmdb.org/t/p/w500/or06FN3Dka5tukK1e9sl16pB3iy.jpg"
+    },
+
+    {
+        id: 7,
+
+        titulo: "Coringa",
+
+        ano: 2019,
+
+        nota: 8.4,
+
+        genero: ["Drama"],
+
+        imagem:
+        "https://image.tmdb.org/t/p/w500/udDclJoHjfjb8Ekgsd4FDteOkCU.jpg"
+    },
+
+    {
+        id: 8,
+
+        titulo: "O Senhor dos Anéis",
+
+        ano: 2001,
+
+        nota: 8.8,
+
+        genero: ["Aventura", "Drama"],
+
+        imagem:
+        "https://image.tmdb.org/t/p/w500/6oom5QYQ2yQTMJIbnvbkblC9h0B.jpg"
+    }
+
+];
+
+
+/* ==========================================
+   LIKES E FAVORITOS
+========================================== */
+
+let likes =
+    JSON.parse(
+        localStorage.getItem("cineflixLikes")
+    ) || {};
+
+let favoritos =
+    JSON.parse(
+        localStorage.getItem("cineflixFavoritos")
+    ) || [];
+
+
+/* ==========================================
+   RENDERIZAR FILMES
+========================================== */
+
+function mostrarFilmes(lista) {
+
+    const container =
+        document.getElementById("listaFilmes");
+
+    container.innerHTML = "";
+
+    lista.forEach(filme => {
+
+        const quantidadeLikes =
+            likes[filme.id] || 0;
+
+        const deuLike =
+            localStorage.getItem(
+                "like_" + filme.id
+            ) === "true";
+
+        const favorito =
+            favoritos.includes(
+                filme.id
+            );
+
+        const card =
+            document.createElement("div");
+
+        card.className = "card";
+
+        card.innerHTML = `
+
+            <img
+                class="poster"
+                src="${filme.imagem}"
+                alt="${filme.titulo}"
+                onerror="this.src='https://via.placeholder.com/500x750/111/fff?text=Sem+Imagem'"
+            >
+
+            <div class="info">
+
+                <h3>
+                    ${filme.titulo}
+                </h3>
+
+                <div class="ano">
+                    ${filme.ano}
+                </div>
+
+                <div class="nota">
+                    ⭐ ${filme.nota}
+                </div>
+
+                <div class="acoes">
+
+                    <button
+                        class="like ${
+                            deuLike ? "ativo" : ""
+                        }"
+                        onclick="darLike(${filme.id})"
+                    >
+                        👍
+                        <span id="likes-${filme.id}">
+                            ${quantidadeLikes}
+                        </span>
+                    </button>
+
+                    <button
+                        class="favorito ${
+                            favorito ? "ativo" : ""
+                        }"
+                        onclick="favoritar(${filme.id})"
+                    >
+                        ${
+                            favorito
+                            ? "❤️"
+                            : "♡"
+                        }
+                    </button>
+
+                </div>
+
+            </div>
+
+        `;
+
+        container.appendChild(card);
+
+    });
+
+}
+
+
+/* ==========================================
+   DAR LIKE
+========================================== */
+
+function darLike(id) {
+
+    const jaDeuLike =
+        localStorage.getItem(
+            "like_" + id
+        ) === "true";
+
+    if (jaDeuLike) {
+
+        likes[id] =
+            Math.max(
+                0,
+                (likes[id] || 0) - 1
+            );
+
+        localStorage.removeItem(
+            "like_" + id
+        );
+
+    } else {
+
+        likes[id] =
+            (likes[id] || 0) + 1;
+
+        localStorage.setItem(
+            "like_" + id,
+            "true"
+        );
+
+    }
+
+    localStorage.setItem(
+        "cineflixLikes",
+        JSON.stringify(likes)
+    );
+
+    atualizarTela();
+
+}
+
+
+/* ==========================================
+   FAVORITAR
+========================================== */
+
+function favoritar(id) {
+
+    if (
+        favoritos.includes(id)
+    ) {
+
+        favoritos =
+            favoritos.filter(
+                filmeId =>
+                    filmeId !== id
+            );
+
+    } else {
+
+        favoritos.push(id);
+
+    }
+
+    localStorage.setItem(
+        "cineflixFavoritos",
+        JSON.stringify(favoritos)
+    );
+
+    atualizarTela();
+
+}
+
+
+/* ==========================================
+   MOSTRAR FAVORITOS
+========================================== */
+
+function mostrarFavoritos() {
+
+    const container =
+        document.getElementById(
+            "listaFavoritos"
+        );
+
+    const mensagem =
+        document.getElementById(
+            "semFavoritos"
+        );
+
+    container.innerHTML = "";
+
+    const lista =
+        filmes.filter(
+            filme =>
+                favoritos.includes(
+                    filme.id
+                )
+        );
+
+    if (lista.length === 0) {
+
+        mensagem.style.display =
+            "block";
+
+        return;
+
+    }
+
+    mensagem.style.display =
+        "none";
+
+    lista.forEach(filme => {
+
+        const quantidadeLikes =
+            likes[filme.id] || 0;
+
+        const card =
+            document.createElement("div");
+
+        card.className =
+            "card";
+
+        card.innerHTML = `
+
+            <img
+                class="poster"
+                src="${filme.imagem}"
+                alt="${filme.titulo}"
+            >
+
+            <div class="info">
+
+                <h3>
+                    ${filme.titulo}
+                </h3>
+
+                <div class="ano">
+                    ${filme.ano}
+                </div>
+
+                <div class="nota">
+                    ⭐ ${filme.nota}
+                </div>
+
+                <div class="acoes">
+
+                    <button
+                        class="like"
+                        onclick="darLike(${filme.id})"
+                    >
+                        👍 ${quantidadeLikes}
+                    </button>
+
+                    <button
+                        class="favorito ativo"
+                        onclick="favoritar(${filme.id})"
+                    >
+                        ❤️
+                    </button>
+
+                </div>
+
+            </div>
+        `;
+
+        container.appendChild(card);
+
+    });
+
+}
+
+
+/* ==========================================
+   PESQUISA
+========================================== */
+
+document
+    .getElementById("pesquisa")
+    .addEventListener(
+        "input",
+        function() {
+
+            const texto =
+                this.value.toLowerCase();
+
+            const resultado =
+                filmes.filter(
+                    filme =>
+                        filme.titulo
+                            .toLowerCase()
+                            .includes(texto)
+                );
+
+            mostrarFilmes(resultado);
+
+        }
+    );
+
+
+/* ==========================================
+   FILTRO POR GÊNERO
+========================================== */
+
+function filtrarGenero(
+    genero,
+    botao
+) {
+
+    document
+        .querySelectorAll(".categoria")
+        .forEach(
+            elemento =>
+                elemento.classList.remove(
+                    "ativa"
+                )
+        );
+
+    botao.classList.add(
+        "ativa"
+    );
+
+    if (genero === "Todos") {
+
+        mostrarFilmes(filmes);
+
+        return;
+
+    }
+
+    const resultado =
+        filmes.filter(
+            filme =>
+                filme.genero.includes(
+                    genero
+                )
+        );
+
+    mostrarFilmes(resultado);
+
+}
+
+
+/* ==========================================
+   ATUALIZAR TUDO
+========================================== */
+
+function atualizarTela() {
+
+    mostrarFilmes(
+        filmes
+    );
+
+    mostrarFavoritos();
+
+}
+
+
+/* ==========================================
+   INICIAR SITE
+========================================== */
+
+mostrarFilmes(
+    filmes
+);
+
+mostrarFavoritos();
+
+</script>
 
 </body>
 </html>
